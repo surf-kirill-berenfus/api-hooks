@@ -1,3 +1,4 @@
+import 'shared/styles/globals.css';
 import 'shared/styles/variables.css';
 
 export const metadata = {

@@ -10,8 +10,6 @@ type Props = {
     children: ReactNode;
 };
 
-export const Button = ({ variant = 'info', children }: Props) => {
-    return (
-        <button className={classNames(styles.buttonContainer, styles[variant])}>{children}</button>
-    );
+export const Alert = ({ variant = 'info', children }: Props) => {
+    return <div className={classNames(styles.container, styles[variant])}>{children}</div>;
 };
