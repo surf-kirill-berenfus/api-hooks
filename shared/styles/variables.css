@@ -1,0 +1,15 @@
+:root {
+    --danger: #fd726a;
+    --danger-light: #ffdedd;
+
+    --success: #44cb7f;
+    --success-light: #d4ffe7;
+
+    --warning: #f39c12;
+    --warning-light: #fdebd0;
+
+    --info: #3498db;
+    --info-light: #d6eaf8;
+
+    --white: #fff;
+}
