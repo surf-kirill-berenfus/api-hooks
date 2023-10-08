@@ -1,12 +1,10 @@
-import { Alert } from 'shared/ui/Alert';
-import { Button } from 'shared/ui/Button';
+import { ButtonsGroup } from 'shared/ui/ButtonsGroup';
 
 export default function Home() {
     return (
         <div>
-            <div>xHaiiiii ^_^ hi!! hiiiiii &lt;3 haiiiiiii hii :3</div>
-            <Button variant="error">Text</Button>
-            <Alert>Вы просто тостер</Alert>
+            <div>Haiiiii ^_^ hi!! hiiiiii &lt;3 haiiiiiii hii :3</div>
+            <ButtonsGroup />
         </div>
     );
 }

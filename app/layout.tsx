@@ -1,5 +1,6 @@
 import 'shared/styles/globals.css';
 import 'shared/styles/variables.css';
+import { AlertService } from 'shared/ui/AlertService';
 
 export const metadata = {
     title: 'Next.js',
@@ -11,6 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html>
             <body>
                 <main>{children}</main>
+                <AlertService />
             </body>
         </html>
     );
