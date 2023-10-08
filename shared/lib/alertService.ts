@@ -3,30 +3,41 @@ import { Observable, Subject } from 'rxjs';
 import { IAlert } from 'shared/types/IAlert';
 import { TColors } from 'shared/types/TColors';
 
-const alertsSubject = new Subject<IAlert>();
+class AlertService {
+    private alertsSubject = new Subject<IAlert>();
+    private closeAlertsSubject = new Subject<number>();
 
-const alert = (status: TColors, message: string, timeout: number): void => {
-    alertsSubject.next({
-        id: Math.round(window.performance.now() * 10),
-        status,
-        message,
-    });
-};
+    onAlert = (): Observable<IAlert> => this.alertsSubject.asObservable();
+    onClose = (): Observable<number> => this.closeAlertsSubject.asObservable();
 
-export const success = (message: string, timeout = 0): void => {
-    alert('success', message, timeout);
-};
+    private alert(status: TColors, message: string, timeout: number) {
+        this.alertsSubject.next({
+            id: Math.round(window.performance.now() * 10),
+            status,
+            message,
+            timeout: 5,
+        });
+    }
 
-export const error = (message: string, timeout = 0): void => {
-    alert('error', message, timeout);
-};
+    success(message: string, timeout = 5) {
+        this.alert('success', message, timeout);
+    }
 
-export const warning = (message: string, timeout = 0): void => {
-    alert('warning', message, timeout);
-};
+    error(message: string, timeout = 5) {
+        this.alert('error', message, timeout);
+    }
 
-export const info = (message: string, timeout = 0): void => {
-    alert('info', message, timeout);
-};
+    warning(message: string, timeout = 5) {
+        this.alert('warning', message, timeout);
+    }
 
-export const onAlert = (): Observable<IAlert> => alertsSubject.asObservable();
+    info(message: string, timeout = 5) {
+        this.alert('info', message, timeout);
+    }
+
+    close = (alertId: number): void => {
+        this.closeAlertsSubject.next(alertId);
+    };
+}
+
+export const alertService = new AlertService();

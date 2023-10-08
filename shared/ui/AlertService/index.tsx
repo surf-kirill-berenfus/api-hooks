@@ -1,26 +1,31 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import { onAlert } from 'shared/lib/alertService';
+import { alertService } from 'shared/lib/alertService';
 import { IAlert } from 'shared/types/IAlert';
 
 import { Alert } from '../Alert';
 import styles from './styles.module.css';
 
 export const AlertService = () => {
-    const alerts: IAlert[] = [{ id: 0, message: 'You are black!', status: 'info' }];
+    const [alerts, setAlerts] = useState<IAlert[]>([]);
 
-    const alertCounter = alerts.map((item) => (
-        <Alert key={item.id} id={item.id} status={'info'} message={item.message} />
-    ));
+    const alertCounter = alerts.map((item) => <Alert key={item.id} {...item} />);
 
     useEffect(() => {
-        const subsctiption = onAlert().subscribe((alert) => {
-            console.log(alert);
+        const alertSubsctiption = alertService.onAlert().subscribe((newAlert) => {
+            setAlerts((prev) => [...prev, newAlert]);
         });
 
-        return () => subsctiption.unsubscribe();
+        const closeAlertSubsctiption = alertService.onClose().subscribe((alertId) => {
+            setAlerts((prev) => prev.filter((alert) => alert.id !== alertId));
+        });
+
+        return () => {
+            alertSubsctiption.unsubscribe();
+            closeAlertSubsctiption.unsubscribe();
+        };
     }, []);
 
     return <div className={styles.container}>{alertCounter}</div>;

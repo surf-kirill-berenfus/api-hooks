@@ -1,6 +1,6 @@
 'use client';
 
-import { error, info, success, warning } from 'shared/lib/alertService';
+import { alertService } from 'shared/lib/alertService';
 import { Button } from '../Button';
 import styles from './styles.module.css';
 
@@ -9,7 +9,7 @@ export const ButtonsGroup = () => {
         <div className={styles.container}>
             <Button
                 onClick={() => {
-                    info('Ты молодец, умеешь нажимать на кнопки');
+                    alertService.info('Ты молодец, умеешь нажимать на кнопки');
                 }}
             >
                 Info
@@ -17,7 +17,7 @@ export const ButtonsGroup = () => {
             <Button
                 variant="warning"
                 onClick={() => {
-                    warning('Пожалуйста, не нажимай сюда...');
+                    alertService.warning('Пожалуйста, не нажимай сюда...');
                 }}
             >
                 Warning
@@ -25,7 +25,7 @@ export const ButtonsGroup = () => {
             <Button
                 variant="error"
                 onClick={() => {
-                    error('Я приду к тебе через 10 минут');
+                    alertService.error('Я приду к тебе через 10 минут');
                 }}
             >
                 Error
@@ -33,7 +33,7 @@ export const ButtonsGroup = () => {
             <Button
                 variant="success"
                 onClick={() => {
-                    success('Неважно');
+                    alertService.success('Неважно');
                 }}
             >
                 Success
