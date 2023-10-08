@@ -1,15 +1,13 @@
 import { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { Colors } from 'shared/types/IColors';
+import { TColors } from 'shared/types/TColors';
 
 import styles from './styles.module.css';
+import { IAlert } from 'shared/types/IAlert';
 
-type Props = {
-    variant?: Colors;
-    children: ReactNode;
-};
+interface Props extends IAlert {}
 
-export const Alert = ({ variant = 'info', children }: Props) => {
-    return <div className={classNames(styles.container, styles[variant])}>{children}</div>;
+export const Alert = ({ status = 'info', message }: Props) => {
+    return <div className={classNames(styles.container, styles[status])}>{message}</div>;
 };

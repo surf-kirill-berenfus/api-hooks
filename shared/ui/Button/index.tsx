@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { Colors } from 'shared/types/IColors';
+import { Colors } from 'shared/types/TColors';
 
 import styles from './styles.module.css';
 
