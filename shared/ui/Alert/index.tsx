@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import styles from './styles.module.css';
@@ -8,9 +8,18 @@ import { alertService } from 'shared/lib/alertService';
 interface Props extends IAlert {}
 
 export const Alert = ({ id, status = 'info', message, timeout }: Props) => {
+    const [isVisible, setIsVisible] = useState(false);
+
     const closeAlert = useCallback(() => {
-        alertService.close(id);
+        setIsVisible(false);
+        setTimeout(() => {
+            alertService.close(id);
+        }, 300);
     }, [id]);
+
+    useEffect(() => {
+        setIsVisible(true);
+    }, []);
 
     useEffect(() => {
         if (timeout > 0) {
@@ -25,7 +34,12 @@ export const Alert = ({ id, status = 'info', message, timeout }: Props) => {
     }, [closeAlert, id, timeout]);
 
     return (
-        <div className={classNames(styles.container, styles[status])} onClick={closeAlert}>
+        <div
+            className={classNames(styles.container, styles[status], {
+                [styles.visible]: isVisible,
+            })}
+            onClick={closeAlert}
+        >
             {message}
         </div>
     );

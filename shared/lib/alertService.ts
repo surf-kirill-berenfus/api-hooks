@@ -35,9 +35,9 @@ class AlertService {
         this.alert('info', message, timeout);
     }
 
-    close = (alertId: number): void => {
+    close(alertId: number) {
         this.closeAlertsSubject.next(alertId);
-    };
+    }
 }
 
 export const alertService = new AlertService();

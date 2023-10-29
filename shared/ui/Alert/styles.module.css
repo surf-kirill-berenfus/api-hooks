@@ -1,8 +1,15 @@
 .container {
+    position: relative;
     width: fit-content;
     padding: 24px 36px;
     border: 1px solid;
     cursor: pointer;
+    transition: left ease-out 300ms;
+    left: 500px;
+}
+
+.visible {
+    left: 0px;
 }
 
 .error {
