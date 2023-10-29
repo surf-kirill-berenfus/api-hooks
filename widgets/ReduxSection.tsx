@@ -7,6 +7,7 @@ import { alertService } from 'shared/lib/alertService';
 import { isServerError } from 'shared/lib/isServerError';
 import { useAppDispatch, useAppSelector } from 'shared/lib/redux';
 import { TServerError } from 'shared/types/TServerError';
+import { AddPostRedux } from 'app/features/add-post-redux';
 
 export const ReduxSection = () => {
     const dispatch = useAppDispatch();
@@ -41,6 +42,7 @@ export const ReduxSection = () => {
     return (
         <div>
             <h2>Common Redux Section</h2>
+            <AddPostRedux />
             <PostList isLoading={isPostsLoading} postList={posts} />
         </div>
     );

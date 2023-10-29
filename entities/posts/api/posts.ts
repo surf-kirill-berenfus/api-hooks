@@ -14,9 +14,23 @@ export const getPosts = (withError = false): Promise<TPost[]> => {
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const error: TServerError = { code: 500, message: 'Server error' };
+            const error: TServerError = { code: 500, message: 'Get post error' };
 
             if (withError) reject(error);
+
+            resolve(posts);
+        }, 900);
+    });
+};
+
+export const createPost = (title: string, withError = false): Promise<TPost[]> => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const error: TServerError = { code: 500, message: 'Create post error' };
+
+            if (withError) reject(error);
+
+            posts = [...posts, { id: posts.length + 1, title }];
 
             resolve(posts);
         }, 900);
