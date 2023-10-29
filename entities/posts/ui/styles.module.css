@@ -18,11 +18,28 @@
 .row:nth-of-type(2n) {
     background-color: #ebfcff;
 }
-.row:first-of-type {
-    background-color: #26c9dd;
-}
 
 .cell {
     border: 1px solid;
     text-align: center;
+}
+
+.header {
+    border: 1px solid;
+    height: 39px;
+    background-color: #26c9dd;
+}
+
+.body {
+    position: relative;
+}
+
+.tableLoader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
 }

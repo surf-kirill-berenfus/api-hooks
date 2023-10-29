@@ -10,7 +10,7 @@ let posts: TPost[] = [
 ];
 
 export const getPosts = (withError = false): Promise<TPost[]> => {
-    console.log('getPosts');
+    console.log('/getPosts');
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {

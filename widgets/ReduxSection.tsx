@@ -11,15 +11,15 @@ import { TServerError } from 'shared/types/TServerError';
 export const ReduxSection = () => {
     const dispatch = useAppDispatch();
     const posts = useAppSelector(({ postsModule }) => postsModule.posts);
+    const isPostsLoading = useAppSelector(({ postsModule }) => postsModule.isPostsLoading);
 
-    const [isLoading, setLoading] = useState(false);
     const [error, setError] = useState<TServerError>();
 
     useEffect(() => {
         if (posts.length) return;
 
-        setLoading(true);
-        getPosts(true)
+        dispatch(postsActions.setPostsLoading(true));
+        getPosts()
             .then((data) => dispatch(postsActions.setPosts(data)))
             .catch((error) => {
                 if (isServerError(error)) {
@@ -27,7 +27,7 @@ export const ReduxSection = () => {
                     setError(error);
                 }
             })
-            .finally(() => setLoading(false));
+            .finally(() => dispatch(postsActions.setPostsLoading(false)));
     }, [dispatch, posts.length]);
 
     if (error) {
@@ -41,7 +41,7 @@ export const ReduxSection = () => {
     return (
         <div>
             <h2>Common Redux Section</h2>
-            {isLoading ? <p>Loading...</p> : <PostList postList={posts} />}
+            <PostList isLoading={isPostsLoading} postList={posts} />
         </div>
     );
 };
