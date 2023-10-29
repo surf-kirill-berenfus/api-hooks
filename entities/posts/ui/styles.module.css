@@ -1,0 +1,28 @@
+.container {
+    width: 400px;
+    font-size: 18px;
+    border: 1px solid;
+    border-radius: 4px;
+    overflow: hidden;
+    border-spacing: 0;
+}
+
+.row {
+    border: 1px solid;
+    height: 39px;
+}
+
+.row:nth-of-type(2n + 1) {
+    background-color: #d5f1f6;
+}
+.row:nth-of-type(2n) {
+    background-color: #ebfcff;
+}
+.row:first-of-type {
+    background-color: #26c9dd;
+}
+
+.cell {
+    border: 1px solid;
+    text-align: center;
+}

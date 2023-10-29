@@ -10,7 +10,7 @@ const initialState: IPostsSlice = {
 };
 
 export const postsSlice = createSlice({
-    name: 'posts',
+    name: 'postsModule',
     initialState,
     reducers: {
         setPosts(state, { payload }: PayloadAction<TPost[]>) {
@@ -18,3 +18,5 @@ export const postsSlice = createSlice({
         },
     },
 });
+
+export const postsActions = postsSlice.actions;

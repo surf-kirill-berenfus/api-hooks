@@ -1,6 +1,9 @@
 import 'shared/styles/globals.css';
 import 'shared/styles/variables.css';
+
 import { AlertService } from 'shared/ui/AlertService';
+
+import { ReduxProvider } from './providers/ReduxProvider';
 
 export const metadata = {
     title: 'Next.js',
@@ -11,7 +14,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html>
             <body>
-                <main>{children}</main>
+                <main>
+                    <ReduxProvider>{children}</ReduxProvider>
+                </main>
                 <AlertService />
             </body>
         </html>
