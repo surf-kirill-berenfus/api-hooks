@@ -7,12 +7,13 @@ import { alertService } from 'shared/lib/alertService';
 import { isServerError } from 'shared/lib/isServerError';
 import { useAppDispatch, useAppSelector } from 'shared/lib/redux';
 import { TServerError } from 'shared/types/TServerError';
-import { AddPostRedux } from 'app/features/add-post-redux';
+import { AddPostRedux } from 'features/add-post-redux';
 
 export const ReduxSection = () => {
     const dispatch = useAppDispatch();
     const posts = useAppSelector(({ postsModule }) => postsModule.posts);
     const isPostsLoading = useAppSelector(({ postsModule }) => postsModule.isPostsLoading);
+    console.log(posts, isPostsLoading);
 
     const [error, setError] = useState<TServerError>();
 

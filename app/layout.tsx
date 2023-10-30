@@ -4,6 +4,7 @@ import 'shared/styles/variables.css';
 import { AlertService } from 'shared/ui/AlertService';
 
 import { ReduxProvider } from './providers/ReduxProvider';
+import { QueryProvider } from './providers/QueryProvider';
 
 export const metadata = {
     title: 'Next.js',
@@ -15,7 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html>
             <body>
                 <main>
-                    <ReduxProvider>{children}</ReduxProvider>
+                    <ReduxProvider>
+                        <QueryProvider>{children}</QueryProvider>
+                    </ReduxProvider>
                 </main>
                 <AlertService />
             </body>

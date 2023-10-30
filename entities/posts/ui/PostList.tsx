@@ -22,7 +22,9 @@ export const PostList = ({ isLoading, postList }: Props) => {
                 <tbody className={styles.body}>
                     {isLoading && (
                         <tr className={styles.tableLoader}>
-                            <Spinner />
+                            <td>
+                                <Spinner />
+                            </td>
                         </tr>
                     )}
                     {postList.length ? (
