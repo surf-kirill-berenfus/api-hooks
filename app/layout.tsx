@@ -5,6 +5,7 @@ import { AlertService } from 'shared/ui/AlertService';
 
 import { ReduxProvider } from './providers/ReduxProvider';
 import { QueryProvider } from './providers/QueryProvider';
+import { SwrProvider } from './providers/SwrProvider';
 
 export const metadata = {
     title: 'Next.js',
@@ -17,7 +18,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body>
                 <main>
                     <ReduxProvider>
-                        <QueryProvider>{children}</QueryProvider>
+                        <QueryProvider>
+                            <SwrProvider>{children}</SwrProvider>
+                        </QueryProvider>
                     </ReduxProvider>
                 </main>
                 <AlertService />

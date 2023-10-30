@@ -1,5 +1,8 @@
 export { createPost, getPosts } from './api/posts';
 
+export { usePostsSwr } from './lib/usePostsSwr';
+export { usePostsSwrMutation } from './lib/usePostsSwrMutation';
+
 export { usePostsQuery } from './lib/usePostsQuery';
 export { useAddPostMutation } from './lib/useAddPostMutation';
 

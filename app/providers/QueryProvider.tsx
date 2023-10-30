@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { PropsWithChildren } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
@@ -9,6 +9,9 @@ const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
             refetchOnMount: false,
+            // enabled - only manual fetch
+            // retry retryOnMount cacheTime
+            // select: (data: TData) => unknown
             refetchOnReconnect: false,
             refetchOnWindowFocus: false,
             onError: (error) => {

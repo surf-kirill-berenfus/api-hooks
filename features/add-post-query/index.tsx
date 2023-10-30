@@ -1,11 +1,9 @@
 import { ChangeEventHandler, useState } from 'react';
-import { createPost, postsActions, useAddPostMutation } from 'entities/posts';
-import { isServerError } from 'shared/lib/isServerError';
-import { alertService } from 'shared/lib/alertService';
+import { useAddPostMutation } from 'entities/posts';
 import { Button } from 'shared/ui/Button';
 
 export const AddPostQuery = () => {
-    const { mutate, isLoading } = useAddPostMutation();
+    const { mutate, /* data, */ isLoading } = useAddPostMutation();
 
     const [value, setValue] = useState('');
 
