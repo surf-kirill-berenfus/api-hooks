@@ -1,5 +1,6 @@
 import { QuerySection } from 'widgets/QuerySection';
 import { ReduxSection } from 'widgets/ReduxSection';
+import { RtkQuerySection } from 'widgets/RtkQuerySection';
 import { SwrSection } from 'widgets/SwrSection';
 
 export default function Home() {
@@ -8,7 +9,8 @@ export default function Home() {
             <h3>Haiiiii ^_^ hi!! hiiiiii &lt;3 haiiiiiii hii :3</h3>
             {/* <ReduxSection /> */}
             {/* <QuerySection /> */}
-            <SwrSection />
+            {/* <SwrSection /> */}
+            <RtkQuerySection />
         </div>
     );
 }
