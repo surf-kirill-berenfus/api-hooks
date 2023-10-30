@@ -18,7 +18,13 @@ export const Alert = ({ id, status = 'info', message, timeout }: Props) => {
     }, [id]);
 
     useEffect(() => {
-        setIsVisible(true);
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 30);
+
+        return () => {
+            clearTimeout(timer);
+        };
     }, []);
 
     useEffect(() => {
